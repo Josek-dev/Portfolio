@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
+
 
 namespace Portfolio
 {
@@ -28,6 +28,8 @@ namespace Portfolio
             }
 
             app.UseRouting();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
@@ -37,16 +39,7 @@ namespace Portfolio
                 });
             });
         }
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-        }
+    
     }
 }
 
